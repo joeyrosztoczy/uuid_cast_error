@@ -6,15 +6,14 @@ defmodule MinimalUuidCastErrorTest do
   alias MinimalUuidCastError.ResourceTwo
 
   test "throws the cast error" do
-    uuid = Ecto.UUID.generate() |> IO.inspect()
+    uuid = Ecto.UUID.generate()
 
     {:ok, two} =
       %{resource_one_id: %{my_key: uuid}}
       |> MinimalUuidCastError.ResourceTwo.changeset()
       |> Repo.insert()
 
-    Repo.all(MinimalUuidCastError.ResourceTwo)
-    fetched = Repo.get(MinimalUuidCastError.ResourceTwo, two.id) |> IO.inspect()
+    fetched = Repo.get(MinimalUuidCastError.ResourceTwo, two.id)
     assert fetched.id == two.id
   end
 end

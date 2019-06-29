@@ -13,7 +13,7 @@ defmodule MinimalUuidCastError.ResourceTwo do
 
   @primary_key {:id, Ecto.UUID, autogenerate: true}
   schema "resource_two" do
-    field(:resource_one_id, {:map, :binary_id})
+    field(:resource_one_id, {:map, Ecto.UUID})
   end
 
   @doc false
@@ -24,20 +24,5 @@ defmodule MinimalUuidCastError.ResourceTwo do
 end
 
 defmodule MinimalUuidCastError do
-  @moduledoc """
-  Documentation for MinimalUuidCastError.
-  """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> MinimalUuidCastError.hello()
-      :world
-
-  """
-  def hello do
-    :world
-  end
+  @moduledoc false
 end
